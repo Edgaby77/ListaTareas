@@ -1,0 +1,7 @@
+{
+  "name": "lista-tareas",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

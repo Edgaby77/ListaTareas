@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-input [(ngModel)]="newTaskTitle" placeholder="Nueva tarea"></ion-input>
+    <ion-button (click)="addTask()">Agregar</ion-button>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let task of tasks" [routerLink]="['/task-detail', task.id]">
+      <ion-label [class.completed]="task.completed">
+        {{ task.title }}
+      </ion-label>
+      <ion-button fill="clear" (click)="toggleTaskComplete(task.id); $event.stopPropagation()">
+        {{ task.completed ? '↩️' : '✔️' }}
+      </ion-button>
+      <ion-button color="danger" fill="clear" (click)="deleteTask(task.id); $event.stopPropagation()">
+        ❌
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
